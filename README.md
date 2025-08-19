@@ -18,7 +18,7 @@ Este é um projeto Python que gera e gerencia combinações de números para jog
 
 1. Clone o repositório:
    ```bash
-   git clone [url-do-repositorio]
+   git clone https://github.com/ANDERSONGUASSU/megasena.git
    cd megasena
    ```
 
