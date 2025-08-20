@@ -2,6 +2,8 @@
 
 Este é um projeto Python que gera e gerencia combinações de números para jogos da Mega-Sena. O projeto utiliza um banco de dados SQLite para armazenar todas as possíveis combinações de números (50.063.860 combinações no total) e fornece uma interface de linha de comando (CLI) para interagir com os dados.
 
+Os dados históricos dos sorteios foram obtidos do site [Mazusoft](https://www.mazusoft.com.br/mega/resultados.php), que mantém um histórico completo dos resultados da Mega-Sena.
+
 ## Funcionalidades
 
 - Geração de todas as combinações possíveis de jogos da Mega-Sena (6 números entre 1 e 60)
@@ -59,19 +61,31 @@ O projeto oferece uma interface de linha de comando com os seguintes comandos:
 
 ```
 megasena/
-├── main.py              # Ponto de entrada da aplicação
-├── requirements.txt     # Dependências do projeto
-├── setup.cfg           # Configurações de desenvolvimento
+├── main.py                # Ponto de entrada da aplicação
+├── megasena-resultados.txt # Arquivo com resultados históricos
+├── requirements.txt       # Dependências do projeto
+├── setup.cfg             # Configurações de desenvolvimento
 └── src/
-    ├── cli/            # Interface de linha de comando
-    │   └── commands.py # Implementação dos comandos
-    ├── core/           # Lógica principal
-    │   ├── combinacoes.py  # Geração de combinações
-    │   └── ids.py      # Geração de IDs únicos
-    ├── data/           # Dados persistentes
-    │   └── megasena.db # Banco de dados SQLite
-    └── storage/        # Camada de acesso a dados
-        └── sqlite.py   # Operações com banco de dados
+    ├── cli/              # Interface de linha de comando
+    │   ├── commands/     # Implementação dos comandos
+    │   │   ├── gerar_jogos.py     # Geração de novos jogos
+    │   │   ├── init_db.py         # Inicialização do banco
+    │   │   ├── mostrar_jogos.py   # Visualização dos jogos
+    │   │   ├── remover_quadras.py # Remoção de quadras
+    │   │   ├── remover_seq_com_3.py # Remoção de sequências
+    │   │   └── total.py           # Contagem de jogos
+    │   ├── __init__.py
+    │   └── menu.py      # Menu interativo
+    ├── core/            # Lógica principal
+    │   ├── combinacoes.py        # Geração de combinações
+    │   ├── ids.py               # Geração de IDs únicos
+    │   ├── remover_quadra.py    # Lógica de remoção de quadras
+    │   ├── remover_seq_com_3.py # Lógica de remoção de sequências
+    │   └── verificar_qtd_jogos.py # Verificação de quantidade
+    ├── data/            # Dados persistentes
+    │   └── megasena.db  # Banco de dados SQLite
+    └── storage/         # Camada de acesso a dados
+        └── sqlite.py    # Operações com banco de dados
 ```
 
 ## Desenvolvimento
