@@ -10,4 +10,4 @@ console = Console()
 def remover_jogos() -> None:
     """Remove jogos com três números consecutivos."""
     remover_seq_com_3()
-    console.print("[bold green]Jogos removidos com sucesso![/bold green]")
+    console.print('[bold green]Jogos removidos com sucesso![/bold green]')

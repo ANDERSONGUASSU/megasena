@@ -16,6 +16,8 @@ def remover_seq_com_3() -> None:
     cursor.execute(query)
     conn.commit()
 
-    print(f"{cursor.rowcount} jogos com 3 números consecutivos foram removidos.")
+    print(
+        f'{cursor.rowcount} jogos com 3 números consecutivos foram removidos.'
+    )
 
     close_connection(conn)

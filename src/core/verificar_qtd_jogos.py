@@ -8,7 +8,7 @@ def contar_jogos() -> int:
     conn = get_connection()
     cursor = conn.cursor()
 
-    cursor.execute("SELECT COUNT(*) FROM jogos")
+    cursor.execute('SELECT COUNT(*) FROM jogos')
     count: int = cursor.fetchone()[0]
 
     close_connection(conn)
